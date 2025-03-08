@@ -1,0 +1,36 @@
+name: Playwright Tests  # Nombre del workflow
+
+on:
+  push:
+    branches:
+      - main  # Se ejecuta cuando haya un push en la rama main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Se ejecuta en un entorno Ubuntu
+
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Instalar Playwright y navegadores
+        run: npx playwright install --with-deps
+
+      - name: Ejecutar pruebas con Playwright
+        run: npx playwright test --project=firefox
+
+      - name: Guardar capturas de pantalla y videos si fallan las pruebas
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: playwright-artifacts
+          path: test-results/
