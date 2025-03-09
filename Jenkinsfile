@@ -1,5 +1,4 @@
 pipeline {
-    apipeline {
     agent any
 
     environment {
@@ -26,3 +25,4 @@ pipeline {
         }
     }
 }
+
