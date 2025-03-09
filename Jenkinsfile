@@ -24,12 +24,12 @@ pipeline {
             }
         }
         */
-        stage('Instalar Playwright') {
+        /*stage('Instalar Playwright') {
             steps {
                 bat 'npx playwright install --with-deps'
             }
         }
-
+        */
         stage('Ejecutar Pruebas') {
             steps {
                 bat 'npx playwright test --project=firefox'
