@@ -5,6 +5,12 @@ pipeline {
         PATH = "C:\\Program Files\\nodejs;${env.PATH}"
     }
 
+    stage('Install Dependencies') {
+    steps {
+        bat 'npm install'
+    }
+}
+
     stages {
         stage('Checkout Código') {
             steps {
