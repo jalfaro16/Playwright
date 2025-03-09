@@ -8,9 +8,9 @@ pipeline {
     stages {
         stage('Checkout Código') {
             steps {
-                git 'https://github.com/jalfaro16/Playwright.git'
-            }
-        }
+            git branch: 'main', url: 'https://github.com/jalfaro16/Playwright.git'
+    }
+}
 
         stage('Ejecutar Pruebas') {
             steps {
