@@ -2,8 +2,17 @@ pipeline {
     agent any
 
     environment {
-        NODE_VERSION = '22.13.1'  // Ajusta según tu versión de Node.js
+        PATH = "C:\\Program Files\\nodejs;${env.PATH}"
     }
+    stages {
+        stage('Verificar Instalación') {
+            steps {
+                bat 'where node'
+                bat 'node -v'
+                bat 'npm -v'
+            }
+        }
+
 
     stages {
         stage('Checkout Código') {
@@ -12,7 +21,7 @@ pipeline {
             }
         }
 
-        stage('Instalar Node.js y Dependencias') {
+       /* stage('Instalar Node.js y Dependencias') {
             steps {
                 script {
                     def nodeHome = tool name: 'NodeJS', type: 'NodeJSInstallation'
@@ -23,7 +32,7 @@ pipeline {
                 bat 'npm ci'    // Instala dependencias del proyecto
             }
         }
-        
+        */
         stage('Instalar Playwright') {
             steps {
                 bat 'npx playwright install --with-deps'
