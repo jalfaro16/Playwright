@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test",
+    "test": "npx playwright test --project=firefox",
      "install:deps": "npx playwright install --with-deps"
   },
+
+  
   "keywords": [],
   "author": "",
   "license": "ISC",
