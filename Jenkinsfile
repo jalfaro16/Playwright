@@ -12,7 +12,7 @@ pipeline {
             }
         }
 
-        stage('Instalar Node.js y Dependencias') {
+        /*stage('Instalar Node.js y Dependencias') {
             steps {
                 script {
                     def nodeHome = tool name: 'NodeJS', type: 'NodeJSInstallation'
@@ -23,7 +23,7 @@ pipeline {
                 bat 'npm ci'    // Instala dependencias del proyecto
             }
         }
-
+        */
         stage('Instalar Playwright') {
             steps {
                 bat 'npx playwright install --with-deps'
