@@ -31,7 +31,7 @@ pipeline {
 
         stage('Ejecutar Pruebas') {
             steps {
-                bat 'npx playwright test'
+                bat 'npx playwright test --project=firefox'
             }
         }
 
