@@ -16,7 +16,8 @@ pipeline {
             steps {
                 script {
                     def nodeHome = tool name: 'NodeJS', type: 'NodeJSInstallation'
-                    env.PATH = "${nodeHome};${env.PATH}"
+                    env.PATH = "${nodeHome}\\bin;${env.PATH}"
+
                 }
                 bat 'node -v'   // Verifica versión de Node.js
                 bat 'npm ci'    // Instala dependencias del proyecto
