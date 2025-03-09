@@ -5,18 +5,19 @@ pipeline {
         PATH = "C:\\Program Files\\nodejs;${env.PATH}"
     }
 
-    stage('Install Dependencies') {
-    steps {
-        bat 'npm install'
-    }
-}
+    
 
     stages {
         stage('Checkout Código') {
             steps {
             git branch: 'main', url: 'https://github.com/jalfaro16/Playwright.git'
-    }
-}
+            }
+        }
+        stage('Install Dependencies') {
+            steps {
+                bat 'npm install'
+            }
+        }
 
         stage('Ejecutar Pruebas') {
             steps {
