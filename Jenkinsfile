@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout Código') {
             steps {
-                git branch: 'main', url: 'https://github.com/tu-repositorio.git'
+                git branch: 'main', url: 'https://github.com/jalfaro16/Playwright.git'
             }
         }
 
