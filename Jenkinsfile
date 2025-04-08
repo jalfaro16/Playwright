@@ -28,6 +28,7 @@ pipeline {
         stage('Publicar Reporte de Playwright') {
             steps {
                 echo "Publicando Reporte..."
+                bat 'npx playwright show-report'
             }
         }
     }
